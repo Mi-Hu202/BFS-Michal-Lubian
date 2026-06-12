@@ -47,10 +47,49 @@ cd bfs-maze
 uv sync --group dev
 
 # 3. Uruchom solver na przykładowym labiryncie
-uv run bfs_maze data/maze_simple.txt
+uv run bfs-maze data/maze_simple.txt
 
 # 4. Lub bezpośrednio przez Python
 uv run python -m app.main data/maze_medium.txt
+```
+
+> **Uwaga:** nazwa polecenia to `bfs-maze` (z myślnikiem), nie `bfs_maze`.
+
+## Oczekiwany wynik
+
+Po uruchomieniu `uv run bfs-maze data/maze_simple.txt` program wypisuje na standardowe wyjście:
+
+```
+Maze loaded: 7 rows × 7 cols
+Start: (0, 0)  |  Goal: (6, 6)
+
+Path found! Length: 12 steps  |  Time: 0.051 ms
+
+S......
+*#####.
+*#...#.
+*#.#.#.
+*#...#.
+*#####.
+******G
+
+Path coordinates:
+(0, 0) -> (1, 0) -> (2, 0) -> (3, 0) -> (4, 0) -> (5, 0) -> (6, 0) -> (6, 1) -> (6, 2) -> (6, 3) -> (6, 4) -> (6, 5) -> (6, 6)
+```
+
+Gwiazdki (`*`) oznaczają znalezioną najkrótszą ścieżkę. Dla labiryntu bez rozwiązania (`maze_no_solution.txt`) program wypisze:
+
+```
+Maze loaded: 3 rows × 3 cols
+Start: (0, 0)  |  Goal: (2, 2)
+
+No path found – the maze has no solution.
+```
+
+Aby ukryć wizualizację i wypisać tylko statystyki:
+
+```bash
+uv run bfs-maze data/maze_simple.txt --hide-path
 ```
 
 ## Uruchamianie testów
