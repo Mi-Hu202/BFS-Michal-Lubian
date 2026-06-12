@@ -20,10 +20,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Path to the maze .txt file (S=start, G=goal, #=wall, .=path)",
     )
     parser.add_argument(
-        "--show-path",
+        "--hide-path",
         action="store_true",
-        default=True,
-        help="Display the maze with the solution path marked (default: True)",
+        default=False,
+        help="Do not display the maze with the solution path marked",
     )
     return parser.parse_args(argv)
 
@@ -54,7 +54,7 @@ def main(argv: list[str] | None = None) -> None:
 
     print(f"Path found! Length: {len(path) - 1} steps  |  Time: {elapsed * 1000:.3f} ms\n")
 
-    if args.show_path:
+    if not args.hide_path:
         print(maze.display(inner_path))
 
     print("\nPath coordinates:")
