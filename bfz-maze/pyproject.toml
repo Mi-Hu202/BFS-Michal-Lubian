@@ -11,8 +11,8 @@ where = ["."]
 include = ["app*"]
 
 [project.urls]
-"Homepage" = "https://github.com/Mi-Hu202/BFS-Michal-Lubian"
-"Source" = "https://github.com/Mi-Hu202/BFS-Michal-Lubian"
+"Homepage" = "https://github.com/YOUR_USERNAME/bfs-maze"
+"Source" = "https://github.com/YOUR_USERNAME/bfs-maze"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
@@ -23,7 +23,7 @@ testpaths = [
 pythonpath = "."
 
 [project.scripts]
-bfs_maze = "app.main:main"
+maze-solver = "app.main:main"
 
 [tool.coverage.run]
 omit = [
@@ -57,6 +57,10 @@ unfixable = ["B"]
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["E402", "F403"]
 "**/{tests,docs,tools}/*" = ["E402", "S101"]
+
+[build-system]
+requires = ["setuptools>=68.0.0"]
+build-backend = "setuptools.build_meta"
 
 [dependency-groups]
 dev = [
